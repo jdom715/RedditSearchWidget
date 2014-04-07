@@ -26,7 +26,7 @@ class ThreadPanel(wx.Panel):
 class MainFrame(wx.Frame):
     def __init__(self, statusText="Check the FAQ if you have questions!", button="displayButton", title="Reddit Search Application", ):
         #Constructor
-        wx.Frame.__init__(self, parent=None, size=(375, 575))
+        wx.Frame.__init__(self, parent=None, size=(375, 600))
         self.SetTitle(title)
         self.MainPanel = MainPanel(self)
         trueButton = getattr(self.MainPanel, button)
@@ -537,8 +537,6 @@ class MainPanel(wx.Panel):
                 frame.MainPanel.subredditForm.SetValue(subredditText)
                 frame.MainPanel.getChoice.SetSelection(choiceIndex)
                 frame.MainPanel.gridSizer.Layout()
-                frame.Show(True)
-                app.MainLoop()
                 frame.Show(True)
                 app.MainLoop()
 
