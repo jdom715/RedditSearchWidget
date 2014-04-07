@@ -1,8 +1,7 @@
 import wx
 import wx.lib.agw.hyperlink as hl
-import wx.lib.scrolledpanel as scrolled
-import appnope
 
+#Thread frame where results are printed
 class ThreadFrame(wx.Frame):
     def __init__(self, title):
         #Constructor
@@ -13,15 +12,17 @@ class ThreadFrame(wx.Frame):
         self.SetStatusText("Enjoy your threads! Close this window to get back to the main one.")
         self.Center()
 
-class ThreadPanel(scrolled.ScrolledPanel):
+class ThreadPanel(wx.Panel):
+
     def __init__(self, parent):
-        scrolled.ScrolledPanel.__init__(self, parent, -1)
+        wx.Panel.__init__(self, parent=parent)
+        self.frame = parent
                 #CREATE GENERALSIZER FOR THREADS
         self.threadSizer = wx.FlexGridSizer(rows = 101, cols=2, vgap=10, hgap=10)
         self.SetSizer(self.threadSizer)
         self.SetAutoLayout(1)
-        self.SetupScrolling()
 
+#Main frame where input is gotten
 class MainFrame(wx.Frame):
     def __init__(self, statusText="Check the FAQ if you have questions!", button="displayButton", title="Reddit Search Application", ):
         #Constructor
@@ -76,27 +77,27 @@ class MainPanel(wx.Panel):
         self.redditButton = wx.RadioButton(self, -1, "Reddit")
         self.redditButton.Bind(wx.EVT_RADIOBUTTON, self.onReddit)
 
-        self.emailButton= wx.RadioButton(self, -1, "Email")
-        self.emailButton.Bind(wx.EVT_RADIOBUTTON, self.onEmail)
+        self.gmailButton= wx.RadioButton(self, -1, "Gmail")
+        self.gmailButton.Bind(wx.EVT_RADIOBUTTON, self.ongmail)
 
         self.buttonSizer.AddMany([(self.displayButton, 0, wx.ALIGN_CENTER | wx.BOTTOM | wx.RIGHT | wx.TOP, 10),
                                   (self.redditButton, 0, wx.ALIGN_RIGHT | wx.BOTTOM | wx.RIGHT | wx.LEFT | wx.TOP, 10),
-                                  (self.emailButton, 0, wx.ALIGN_CENTER | wx.BOTTOM | wx.LEFT | wx.TOP, 10)])
+                                  (self.gmailButton, 0, wx.ALIGN_CENTER | wx.BOTTOM | wx.LEFT | wx.TOP, 10)])
 
         self.sizer.Add(self.buttonSizer, 0, wx.CENTER)
 
         #CREATE GRID SIZER FOR ALMOST EVERYTHING ELSE
         self.gridSizer = wx.FlexGridSizer(rows=100, cols=2)
 
-        # Email
-        self.emailLabel = wx.StaticText(self, -1, "Email: ")
-        self.emailForm = wx.TextCtrl(self, -1, "Email goes here", size = (200, -1))
-        self.emailForm.Bind(wx.EVT_LEFT_DOWN, lambda event: self.emailForm.Clear())
-        self.emailForm.Bind(wx.EVT_KEY_UP, lambda event: self.emailForm.Clear() if event.GetUnicodeKey() == wx.WXK_TAB else None)
-        self.gridSizer.Add(self.emailLabel, 0, wx.TOP | wx.LEFT | wx.BOTTOM | wx.ALIGN_LEFT, 10)
-        self.gridSizer.Add(self.emailForm, 0, wx.TOP | wx.RIGHT | wx.BOTTOM | wx.ALIGN_LEFT, 10)
-        self.emailLabel.Hide()
-        self.emailForm.Hide()
+        # gmail
+        self.gmailLabel = wx.StaticText(self, -1, "Gmail: ")
+        self.gmailForm = wx.TextCtrl(self, -1, "Gmail goes here", size = (200, -1))
+        self.gmailForm.Bind(wx.EVT_LEFT_DOWN, lambda event: self.gmailForm.Clear())
+        self.gmailForm.Bind(wx.EVT_KEY_UP, lambda event: self.gmailForm.Clear() if event.GetUnicodeKey() == wx.WXK_TAB else None)
+        self.gridSizer.Add(self.gmailLabel, 0, wx.TOP | wx.LEFT | wx.BOTTOM | wx.ALIGN_LEFT, 10)
+        self.gridSizer.Add(self.gmailForm, 0, wx.TOP | wx.RIGHT | wx.BOTTOM | wx.ALIGN_LEFT, 10)
+        self.gmailLabel.Hide()
+        self.gmailForm.Hide()
 
         # Username
         self.usernameForm = wx.TextCtrl(self, -1, "Reddit username goes here.", size=(200, -1))
@@ -131,7 +132,7 @@ class MainPanel(wx.Panel):
         self.gridSizer.Add(self.keyWordsForm, 0, wx.TOP | wx.RIGHT | wx.BOTTOM | wx.ALIGN_LEFT, 10)
         self.keyWordsForm.Bind(wx.EVT_LEFT_DOWN, lambda event: self.keyWordsForm.Clear())
         self.keyWordsForm.Bind(wx.EVT_KEY_UP, lambda event: self.keyWordsForm.Clear() if event.GetUnicodeKey() == wx.WXK_TAB else None)
-        self.keyWordsForm.Bind(wx.EVT_LEFT_DOWN, lambda event: self.frame.SetStatusText("Leave this blank if you just want the last posts!"))
+        self.keyWordsForm.Bind(wx.EVT_LEFT_DOWN, lambda event: self.frame.SetStatusText("Leave this blank if you want the most recent posts!"))
 
         #Get
         getList = ['hot', 'new', 'rising', 'controversial', 'top']
@@ -189,10 +190,10 @@ class MainPanel(wx.Panel):
         self.SetSizer(self.sizer)
 
     def onReddit(self, event):
-        self.gridSizer.Hide(self.emailLabel)
-        self.gridSizer.Remove(self.emailLabel)
-        self.gridSizer.Hide(self.emailForm)
-        self.gridSizer.Remove(self.emailForm)
+        self.gridSizer.Hide(self.gmailLabel)
+        self.gridSizer.Remove(self.gmailLabel)
+        self.gridSizer.Hide(self.gmailForm)
+        self.gridSizer.Remove(self.gmailForm)
 
         self.gridSizer.Show(self.usernameForm)
         self.gridSizer.Show(self.usernameLabel)
@@ -200,7 +201,7 @@ class MainPanel(wx.Panel):
         self.gridSizer.Show(self.passwordLabel)
         self.sizer.Layout()
 
-    def onEmail(self, event):
+    def ongmail(self, event):
         self.gridSizer.Hide(self.usernameLabel)
         self.gridSizer.Remove(self.usernameLabel)
         self.gridSizer.Hide(self.usernameForm)
@@ -209,15 +210,15 @@ class MainPanel(wx.Panel):
         self.gridSizer.Show(self.passwordForm)
         self.gridSizer.Show(self.passwordLabel)
 
-        self.emailForm.Show()
-        self.emailLabel.Show()
+        self.gmailForm.Show()
+        self.gmailLabel.Show()
         self.sizer.Layout()
 
     def onDisplay(self, event):
-        self.gridSizer.Hide(self.emailLabel)
-        self.gridSizer.Remove(self.emailLabel)
-        self.gridSizer.Hide(self.emailForm)
-        self.gridSizer.Remove(self.emailForm)
+        self.gridSizer.Hide(self.gmailLabel)
+        self.gridSizer.Remove(self.gmailLabel)
+        self.gridSizer.Hide(self.gmailForm)
+        self.gridSizer.Remove(self.gmailForm)
 
         self.gridSizer.Hide(self.usernameLabel)
         self.gridSizer.Remove(self.usernameLabel)
@@ -268,18 +269,23 @@ class MainPanel(wx.Panel):
                 wx.GetApp().Destroy()
                 if __name__ == '__main__':
                     app = wx.App(False)
-                    frame = MainFrame("Invalid username or password! Try again")
+                    frame = MainFrame("Invalid username or password! Try again", "redditButton")
+                    frame.MainPanel.usernameForm.Show()
+                    frame.MainPanel.usernameLabel.Show()
+                    frame.MainPanel.passwordForm.Show()
+                    frame.MainPanel.passwordLabel.Show()
                     frame.MainPanel.subredditForm.SetValue(subredditText)
                     frame.MainPanel.keyWordsForm.SetValue(keyWordsText)
                     frame.MainPanel.itemsForm.SetValue(keyWordsText)
                     frame.MainPanel.getChoice.SetSelection(choiceIndex)
                     frame.MainPanel.gridSizer.Layout()
+                    frame.MainPanel.sizer.Layout()
                     frame.Show(True)
                     app.MainLoop()
 
-        elif self.emailButton.GetValue():
+        elif self.gmailButton.GetValue():
             import smtplib
-            username = self.emailForm.GetValue()
+            username = self.gmailForm.GetValue()
             try:
                 server = smtplib.SMTP("smtp.gmail.com", 587)
                 server.ehlo()
@@ -289,17 +295,23 @@ class MainPanel(wx.Panel):
                 wx.GetApp().Destroy()
                 if __name__ == '__main__':
                     app = wx.App(False)
+
                     #RESET TO PREVIOUS CORRECT VALUES
-                    frame = MainFrame("Invalid email or password! Try again", "emailButton")
+                    frame = MainFrame("Invalid gmail or password! Try again", "gmailButton")
+                    frame.MainPanel.usernameForm.Show()
+                    frame.MainPanel.usernameLabel.Show()
+                    frame.MainPanel.passwordForm.Show()
+                    frame.MainPanel.passwordLabel.Show()
                     frame.MainPanel.gridSizer.Hide(frame.MainPanel.usernameForm)
                     frame.MainPanel.gridSizer.Hide(frame.MainPanel.usernameLabel)
-                    frame.MainPanel.gridSizer.Show(frame.MainPanel.emailForm)
-                    frame.MainPanel.gridSizer.Show(frame.MainPanel.emailLabel)
+                    frame.MainPanel.gridSizer.Show(frame.MainPanel.gmailForm)
+                    frame.MainPanel.gridSizer.Show(frame.MainPanel.gmailLabel)
                     frame.MainPanel.subredditForm.SetValue(subredditText)
                     frame.MainPanel.keyWordsForm.SetValue(keyWordsText)
-                    frame.MainPanel.itemsForm.SetValue(keyWordsText)
+                    frame.MainPanel.itemsForm.SetValue(itemsText)
                     frame.MainPanel.getChoice.SetSelection(choiceIndex)
                     frame.MainPanel.gridSizer.Layout()
+                    frame.MainPanel.sizer.Layout()
                     frame.Show(True)
                     app.MainLoop()
 
@@ -310,20 +322,27 @@ class MainPanel(wx.Panel):
             if self.redditButton.GetValue():
                 username = self.usernameForm.GetValue()
                 rightButton = "redditButton"
-            elif self.emailButton.GetValue():
-                username = self.emailForm.GetValue()
-                rightButton = "emailButton"
+            elif self.gmailButton.GetValue():
+                username = self.gmailForm.GetValue()
+                rightButton = "gmailButton"
             else:
-                username = ""
+                rightButton = "displayButton"
 
             wx.GetApp().Destroy()
             if __name__ == '__main__':
                 app = wx.App(False)
                 frame = MainFrame("Invalid Subreddit! Try again", rightButton)
+                if rightButton == "gmailButton" or rightButton == "redditButton":
+                    frame.MainPanel.usernameForm.Show()
+                    frame.MainPanel.usernameLabel.Show()
+                    frame.MainPanel.passwordForm.Show()
+                    frame.MainPanel.passwordLabel.Show()
+                    frame.MainPanel.usernameForm.SetValue(username)
                 frame.MainPanel.keyWordsForm.SetValue(keyWordsText)
                 frame.MainPanel.itemsForm.SetValue(itemsText)
                 frame.MainPanel.getChoice.SetSelection(choiceIndex)
                 frame.MainPanel.gridSizer.Layout()
+                frame.MainPanel.sizer.Layout()
                 frame.Show(True)
                 app.MainLoop()
 
@@ -331,33 +350,63 @@ class MainPanel(wx.Panel):
         try:
             itemsNumber = int(itemsText)
         except ValueError:
-            wx.GetApp().Destroy()
+            if self.redditButton.GetValue():
+                username = self.usernameForm.GetValue()
+                rightButton = "redditButton"
+            elif self.gmailButton.GetValue():
+                username = self.gmailForm.GetValue()
+                rightButton = "gmailButton"
+            else:
+                rightButton = "displayButton"
             if __name__ == '__main__':
                 app = wx.App(False)
-                frame = MainFrame("Invalid items number! Try again")
+                frame = MainFrame("Invalid items number! Try again", rightButton)
+                if rightButton == "gmailButton" or rightButton == "redditButton":
+                    frame.MainPanel.usernameForm.Show()
+                    frame.MainPanel.usernameLabel.Show()
+                    frame.MainPanel.passwordForm.Show()
+                    frame.MainPanel.passwordLabel.Show()
+                    frame.MainPanel.usernameForm.SetValue(username)
                 frame.MainPanel.keyWordsForm.SetValue(keyWordsText)
                 frame.MainPanel.subredditForm.SetValue(subredditText)
                 frame.MainPanel.getChoice.SetSelection(choiceIndex)
                 frame.MainPanel.gridSizer.Layout()
+                frame.MainPanel.sizer.Layout()
                 frame.Show(True)
                 app.MainLoop()
                 frame.Show(True)
                 app.MainLoop()
 
         if itemsNumber > 100:
+            if self.redditButton.GetValue():
+                username = self.usernameForm.GetValue()
+                rightButton = "redditButton"
+            elif self.gmailButton.GetValue():
+                username = self.gmailForm.GetValue()
+                rightButton = "gmailButton"
+            else:
+                rightButton = "displayButton"
             wx.GetApp().Destroy()
             if __name__ == '__main__':
                 app = wx.App(False)
-                frame = MainFrame("Invalid items number! Try again")
+                frame = MainFrame("Invalid items number! Try again", rightButton)
+                if rightButton == "gmailButton" or rightButton == "redditButton":
+                    frame.MainPanel.usernameForm.Show()
+                    frame.MainPanel.usernameLabel.Show()
+                    frame.MainPanel.passwordForm.Show()
+                    frame.MainPanel.passwordLabel.Show()
+                    frame.MainPanel.usernameForm.SetValue(username)
                 frame.MainPanel.keyWordsForm.SetValue(keyWordsText)
                 frame.MainPanel.subredditForm.SetValue(subredditText)
                 frame.MainPanel.getChoice.SetSelection(choiceIndex)
                 frame.MainPanel.gridSizer.Layout()
+                frame.MainPanel.sizer.Layout()
                 frame.Show(True)
                 app.MainLoop()
                 frame.Show(True)
                 app.MainLoop()
 
+        #CHECK IF MORE THAN 20 POST'S COMMENTS ARE BEING CHECKED
         if (itemsNumber>20 and self.commentsBox.IsChecked()):
             wx.GetApp().Destroy()
             if __name__ == '__main__':
@@ -367,6 +416,7 @@ class MainPanel(wx.Panel):
                 frame.MainPanel.subredditForm.SetValue(subredditText)
                 frame.MainPanel.getChoice.SetSelection(choiceIndex)
                 frame.MainPanel.gridSizer.Layout()
+                frame.MainPanel.sizer.Layout()
                 frame.Show(True)
                 app.MainLoop()
                 frame.Show(True)
@@ -388,10 +438,12 @@ class MainPanel(wx.Panel):
         submissionLinkList = []
         submissionTitleList = []
 
+        #Is each box checked
         commentsBoolean = self.commentsBox.IsChecked()
         titleBoolean = self.titleBox.IsChecked()
         textBoolean = self.textBox.IsChecked()
 
+        #Iterate through posts
         for submission in getattr(subreddit, choiceMethodString)(limit=itemsNumber):
             title = submission.title
             submissionTitle = submission.title.lower()
@@ -405,7 +457,7 @@ class MainPanel(wx.Panel):
                     hasTitle = any(string in (submissionTitle or submissionText) for string in keyWordsList)
 
                 if textBoolean:
-                    hasText = any(string in (submissionTitle) for string in keyWordsList)
+                    hasText = any(string in (submissionText) for string in keyWordsList)
 
                 if hasTitle or hasText:
                     submissionLinkList.append(submission.short_link)
@@ -429,14 +481,28 @@ class MainPanel(wx.Panel):
 
         #SEND MESSAGE OR DISPLAY
         if len(submissionLinkList) != 0:
-            message = '\n\n'.join(submissionLinkList)
+            subject = "{0} Threads in /r/{1} containing '{2}'".format(choice, subredditText, keyWordsList[0].upper())
+            subject = subject[:1].upper() + subject[1:]
             #IF REDDIT CHOSEN AS MESSAGE CHOICE
             if self.redditButton.GetValue():
-                r.user.send_message('throwawayphysics2', 'Query Thread', message, captcha = 'None')
+                message = ""
+                for i in range(len(submissionLinkList)):
+                    message += "{0}. [{1}]({2})\n".format(i+1, submissionTitleList[i], submissionLinkList[i])
+                r.user.send_message(subject=subject, message = message)
                 self.frame.SetStatusText("Done, check your inbox!")
-            #IF EMAIL CHOSEN
-            elif self.emailButton.GetValue():
-                sender = self.emailForm.GetValue()
+            #IF GMAIL CHOSEN
+            elif self.gmailButton.GetValue():
+
+                FROM = self.gmailForm.GetValue()
+                TO = self.gmailForm.GetValue()
+
+                message = """\From: {0}\nTo: {1}\nSubject: {2}\n\n""".format(FROM, TO, subject)
+
+                for i in range(len(submissionLinkList)):
+                    message += "{0}. {1} {2}\n\n".format(i+1, submissionTitleList[i], submissionLinkList[i])
+
+
+                sender = self.gmailForm.GetValue()
                 password = self.passwordForm.GetValue()
 
                 server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -449,11 +515,11 @@ class MainPanel(wx.Panel):
                 self.frame.SetStatusText("Done, check your inbox!")
             #IF DISPLAY CHOSEN
             else:
-                threadFrame = ThreadFrame("{0} threads in /r/{1} from your keyword search!".format(choice, subredditText))
+                threadFrame = ThreadFrame(subject)
                 for i in range(len(submissionTitleList)):
                     # submissionTitleText = wx.StaticText(threadFrame, -1, submissionTitleList[i])
                     # threadFrame.ThreadPanel.threadSizer.Add(submissionTitleText)
-                    number = wx.StaticText(threadFrame, -1, str(i+1))
+                    number = wx.StaticText(threadFrame, -1, str(i+1) + ".")
                     hyper = hl.HyperLinkCtrl(threadFrame, -1, submissionTitleList[i], URL= submissionLinkList[i])
 
                     threadFrame.ThreadPanel.threadSizer.Add(number)
