@@ -58,11 +58,11 @@ There are multiple fields:
 
 - **Get** Get, as in "get hot", or get the posts from the hot section of the subreddit. Your options are:
 
-    - **hot**
-    - **new**
-    - **rising**
-    - **controversial**
-    - **top**
+    - hot
+    - new
+    - rising
+    - controversial
+    - top
 - **Items**
 
 
