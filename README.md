@@ -38,7 +38,7 @@ FAQ
 
 **WHAT DOES THIS WIDGET DO EXACTLY?**
 
-This widget's purpose is to search subreddits for the keywords you give given the parameters you give it.
+This widget's purpose is to search subreddits for the keywords you give, given the parameters you give it.
 
 **HOW DO I USE IT AND WHAT DOES EVERYTHING DO?**
 
@@ -46,7 +46,8 @@ There are multiple fields:
 
 - **Message Choice** You can choose how you have the search result information messaged to you, the options are:
 
-    - **Display** Display the results in a new window within the application.             - **Reddit** Have the results mailed to you in a personal message.
+    - **_Display_** Display the results in a new window within the application.
+    - **Reddit** Have the results mailed to you in a personal message.
     - **Gmail** Have the results sent to your gmail
     
 - **Username/Password** If you chose either 'Reddit' or 'Gmail' for your message choice, you simply imput your Reddit Username or Gmail username (including '@gmail.com') along with your corresponding password.
@@ -55,13 +56,12 @@ There are multiple fields:
 
 - **Keyword(s)** They are the keywords you are searching for in the posts. If you want to search for multiple words, separate words with a space. 
 
-- **Get** Get, as in "get hot", or get the posts from the hot section of the subreddit. Your options are:
+- **Get** Get, as in "get hot", or get the posts from the hot section of the subreddit. Hot is not your only option; your options are:
 
     - hot
     - new
     - rising
     - controversial
     - top
-- **Items**
-
-
+    
+- **Items** This is how many of the most recent posts of the specified section The input has to be an integer between 1 and 100. 
