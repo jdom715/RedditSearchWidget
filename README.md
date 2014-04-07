@@ -52,9 +52,17 @@ There are multiple fields:
     
 - **Username/Password** If you chose either 'Reddit' or 'Gmail' for your message choice, you simply imput your Reddit Username or Gmail username (including '@gmail.com') along with your corresponding password.
 
-- **Subreddit** This is the specific subreddit you want to search. 
+- **Subreddit** This is the specific subreddit you want to search. Multiple subreddits is not supported at this time.
 
-- **Keyword(s)** 
+- **Keyword(s)** They are the keywords you are searching for in the posts. If you want to search for multiple words, separate words with a space. 
 
+- **Get** Get, as in "get hot", or get the posts from the hot section of the subreddit. Your options are:
+
+    - **hot**
+    - **new**
+    - **rising**
+    - **controversial**
+    - **top**
+- **Items**
 
 
