@@ -152,7 +152,7 @@ class MainPanel(wx.Panel):
         self.itemsForm.Bind(wx.EVT_KEY_UP, lambda event: self.itemsForm.Clear() if event.GetUnicodeKey() == wx.WXK_TAB else None)
 
         #Time
-        timeList = ['hour', 'today', 'week', 'month', 'year', 'all']
+        timeList = ['hour', 'day', 'week', 'month', 'year', 'all']
         self.timeChoice = wx.Choice(self, -1, (200, -1), choices=timeList)
         self.timeLabel = wx.StaticText(self, -1, "from: ")
         self.gridSizer.Add(self.timeLabel, 0, wx.TOP | wx.BOTTOM | wx.LEFT | wx.ALIGN_RIGHT, 10)
@@ -358,6 +358,8 @@ class MainPanel(wx.Panel):
                 rightButton = "gmailButton"
             else:
                 rightButton = "displayButton"
+
+            wx.GetApp().Destroy()
             if __name__ == '__main__':
                 app = wx.App(False)
                 frame = MainFrame("Invalid items number! Try again", rightButton)
