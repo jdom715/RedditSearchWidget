@@ -36,18 +36,17 @@ The following videos demonstrate how to use each, respectively.
 FAQ
 =============
 
-**What does this widget do exactly?**
+**WHAT DOES THIS WIDGET DO EXACTLY?**
 
 This widget's purpose is to search subreddits for the keywords you give given the parameters you give it.
 
-**How do I use it and what does everything do exactly?**
+**HOW DO I USE IT AND WHAT DOES EVERYTHING DO?**
 
 There are multiple fields:
 
 - **Message Choice** You can choose how you have the search result information messaged to you, the options are:
 
-    - **Display** Display the results in a new window within the application.
-    - **Reddit** Have the results mailed to you in a personal message.
+    - **Display** Display the results in a new window within the application.             - **Reddit** Have the results mailed to you in a personal message.
     - **Gmail** Have the results sent to your gmail
     
 - **Username/Password** If you chose either 'Reddit' or 'Gmail' for your message choice, you simply imput your Reddit Username or Gmail username (including '@gmail.com') along with your corresponding password.
