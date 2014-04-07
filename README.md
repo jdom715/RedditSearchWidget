@@ -33,3 +33,6 @@ The following videos demonstrate how to use each, respectively.
 
 [Gmail Demo](https://www.youtube.com/watch?v=GuRXJHX4_Gk)
 
+FAQ
+=============
+
