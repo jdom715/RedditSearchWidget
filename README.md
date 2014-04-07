@@ -19,5 +19,17 @@ Examples
 =============
 Here are some examples showing you how to use this search app. If you would prefer reading the instructions, scroll down to the FAQ section.
 
+There are 3 ways you can get the search results:
 
+- Display it in the window of the app
+- Get it in a personal Reddit message
+- Get it sent to your Gmail
+
+The following videos demonstrate how to use each, respectively. 
+
+[Display Demo](https://www.youtube.com/watch?v=PsaaO2hIyjw)
+
+[Reddit PM Demo](https://www.youtube.com/watch?v=QvwyRUeosE4)
+
+[Gmail Demo](https://www.youtube.com/watch?v=GuRXJHX4_Gk)
 
