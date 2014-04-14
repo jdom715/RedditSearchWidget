@@ -81,4 +81,4 @@ There are multiple fields:
     - Text
     - Comments
     
-![sdfsfd](/http://imgur.com/5FJzI6U)    
+![alt tag](/http://imgur.com/5FJzI6U)    
