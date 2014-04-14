@@ -66,4 +66,19 @@ There are multiple fields:
     
 - **Items** This is how many of the most recent posts of the specified section The input has to be an integer between 1 and 100. 
 
-![](/http://imgur.com/5FJzI6U)
+- **From:** If you select "controverisal" or "top", this pops up and asks you to choose how recent you want the posts to be; your options are:
+
+	- hour
+    - day
+    - week
+    - month
+    - year
+    - all
+    
+- **Search** This determines which part of the post you want to search for your keyword. Selecting "comments" and "title" will return results that had the keyword in  the comments OR the title. Your options are:
+	
+    - Title
+    - Text
+    - Comments
+    
+    
