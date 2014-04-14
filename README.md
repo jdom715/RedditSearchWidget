@@ -65,3 +65,5 @@ There are multiple fields:
     - top
     
 - **Items** This is how many of the most recent posts of the specified section The input has to be an integer between 1 and 100. 
+
+![](/http://imgur.com/5FJzI6U)
