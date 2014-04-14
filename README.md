@@ -17,7 +17,7 @@ To run this widget script, you will need the following items:
 
 Examples
 =============
-Here are some examples showing you how to use this search app. If you would prefer reading the instructions, scroll down to the FAQ section.
+Here are some examples showing you how to use this search app. If you would prefer reading the instructions with a screenshot example, scroll down to the FAQ section.
 
 There are 3 ways you can get the search results:
 
@@ -80,6 +80,32 @@ There are multiple fields:
     - Title
     - Text
     - Comments
+
+Putting it all together, look at the image below:
+ 
+![alt tag](http://i.imgur.com/5FJzI6U.png)   
     
+This query will:
+
+- Display the results in the window.
+- Search the subreddit "frugalmalefashion".
+- Look for the keyword "cheap" in the "top" section, and only look in posts from the last "hour". It will search 25 of the last posts, or less if there have been less in the last hour.
+- It will search to see if the "cheap" is in title of the post, the self text of the post, or the comments.
+
+**WHY SHOULD I USE THIS INSTEAD OF JUST USING THE REDDIT SEARCH ENGINE?**
+
+This widget allows you more customization and specificity in your query than the default search engine allows you.
+
+**WHO ARE YOU AND WHY'D YOU MAKE THIS?** 
+
+I'm a Computer Science student at the University of Minnesota - Twin Cities. I wanted to experiment with GUI's and using API's; also, it was frustrating not being able to find stuff using the Reddit search engine so I had this idea for a while.
+
+**WHY DO I NEED TO PUT IN MY PASSWORD?**
+
+You are technically emailing or messaging the content to yourself, that's why your password is needed, for your persmission to send an email from your account. 
+
+**WILL MY PASSWORD BE STORED ANYWHERE WITHOUT MY PERMISSION?** 
+
+No. The script is a file run locally that I have no access to on your computer. If you still feel uncomfortable giving a password, that's what the "Display" feature is for.
+
     
-    ![alt tag](http://i.imgur.com/5FJzI6U.png)    
