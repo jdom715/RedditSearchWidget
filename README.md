@@ -81,4 +81,4 @@ There are multiple fields:
     - Text
     - Comments
     
-![alt tag](/http://imgur.com/5FJzI6U)    
+![alt tag](https://raw.github.com/jdom715/RedditSearchWidget/blob/master/screenshot.png)    
