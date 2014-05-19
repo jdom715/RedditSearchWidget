@@ -513,7 +513,7 @@ class MainPanel(wx.Panel):
 
         keyWordsList = re.sub("[^\w]", " ", keyWordsText).split()
         for i in keyWordsList:
-            i = i.lower()
+            i.lower()
 
         #list to put submission short links and titles
         submissionLinkList = []
@@ -541,7 +541,7 @@ class MainPanel(wx.Panel):
                                    for string in keyWordsList)
 
                 if textBoolean:
-                    hasText = any(string in (submissionText)
+                    hasText = any(string in submissionText
                                   for string in keyWordsList)
 
                 if hasTitle or hasText:
