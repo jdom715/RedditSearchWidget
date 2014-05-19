@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="31849564-6458-477d-9bf7-295f228a9cfc" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/RedditSearchWidget.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot.png" afterPath="" />
     </list>
     <ignored path="RedditSearchWidget.iws" />
@@ -33,7 +29,7 @@
       <file leaf-file-name="RedditSearchWidget.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RedditSearchWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="29" selection-start="811" selection-end="811" vertical-scroll-proportion="-13.006024" vertical-offset="8996" max-vertical-offset="9660">
+            <state line="608" column="47" selection-start="0" selection-end="27263" vertical-scroll-proportion="0.18674698" vertical-offset="8996" max-vertical-offset="9660">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -400,7 +396,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RedditSearchWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="29" selection-start="811" selection-end="811" vertical-scroll-proportion="-13.006024" vertical-offset="8996" max-vertical-offset="9660">
+        <state line="608" column="47" selection-start="0" selection-end="27263" vertical-scroll-proportion="0.18674698" vertical-offset="8996" max-vertical-offset="9660">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
