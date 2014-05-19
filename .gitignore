@@ -58,3 +58,21 @@ docs/_build/
 *.xml
 
 *.xml
+
+.idea/encodings.xml
+
+.idea/inspectionProfiles/profiles_settings.xml
+
+.idea/inspectionProfiles/Project_Default.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/RedditSearchWidget.iml
+
+.idea/scopes/scope_settings.xml
+
+.idea/vcs.xml
+
+screenshot.png
