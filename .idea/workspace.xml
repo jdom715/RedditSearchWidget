@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31849564-6458-477d-9bf7-295f228a9cfc" name="Default" comment="" />
+    <list default="true" id="31849564-6458-477d-9bf7-295f228a9cfc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RedditSearchWidget.py" afterPath="$PROJECT_DIR$/RedditSearchWidget.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="RedditSearchWidget.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +29,7 @@
       <file leaf-file-name="RedditSearchWidget.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RedditSearchWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="553" column="0" selection-start="24731" selection-end="24731" vertical-scroll-proportion="0.8688047" vertical-offset="7699" max-vertical-offset="8385">
+            <state line="546" column="39" selection-start="23307" selection-end="23307" vertical-scroll-proportion="12.334337" vertical-offset="0" max-vertical-offset="9660">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -53,8 +56,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="960" />
-    <option name="height" value="1054" />
+    <option name="width" value="640" />
+    <option name="height" value="774" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -83,7 +86,24 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RedditSearchWidget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RedditSearchWidget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RedditSearchWidget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scope">
         <subPane subId="Problems" />
@@ -263,7 +283,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="960" height="1054" extended-state="0" />
+    <frame x="0" y="22" width="640" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -302,6 +322,15 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/RedditSearchWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="553" column="0" selection-start="24731" selection-end="24731" vertical-scroll-proportion="0.0" vertical-offset="7714" max-vertical-offset="8385">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RedditSearchWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="0" selection-start="1381" selection-end="1381" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="8355">
@@ -358,7 +387,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RedditSearchWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="553" column="0" selection-start="24731" selection-end="24731" vertical-scroll-proportion="0.8688047" vertical-offset="7699" max-vertical-offset="8385">
+        <state line="546" column="39" selection-start="23307" selection-end="23307" vertical-scroll-proportion="12.334337" vertical-offset="0" max-vertical-offset="9660">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
